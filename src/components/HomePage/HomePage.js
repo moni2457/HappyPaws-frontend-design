@@ -1,3 +1,4 @@
+// Dummy content is referred from https://www.lipsum.com/
 import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -16,7 +17,7 @@ class HomePage extends Component {
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src="https://s3-us-west-1.amazonaws.com/breederretriever/uploads/breeds/images/photopost/536/iStock_000001285472Small.jpg"
+                            src="https://storage.needpix.com/rsynced_images/dogs-4137678_1280.jpg"
                             alt="First slide"
                             width="100%"
                             height="375px"
@@ -29,7 +30,7 @@ class HomePage extends Component {
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src="https://i.ytimg.com/vi/kEtCPKjWpgQ/maxresdefault.jpg"
+                            src="https://storage.needpix.com/rsynced_images/cat-4262034_1280.jpg"
                             alt="Third slide"
                             width="100%"
                             height="375px"
@@ -43,7 +44,7 @@ class HomePage extends Component {
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src="https://www.witsend4pets.co.uk/blog/wp-content/uploads/2016/05/Dog-playing-with-ball.jpg"
+                            src="https://www.hertsforlearning.co.uk/sites/default/files/images/blog/DOG%20PIC%201.jpg"
                             alt="Third slide"
                             width="100%"
                             height="375px"
@@ -82,24 +83,24 @@ class HomePage extends Component {
                     <Row>
                         <Col xs={4.5} sm={6} md={6} lg={3}>
                             <div style={{ cursor: "pointer" }} onClick={() => alert("Under Construction")} className="img-pets">
-                                <img height="250px" width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnK_EdyQSbwU3PeuNpG9Dl9cM6BwKTh0zDaXablw8ebRIObku-&usqp=CAU"></img>
+                                <img height="250px" width="100%" src="https://www.insidermedia.com/uploads/news/images/puppy-1207816_960_720.jpg"></img>
                                 <p>Polo, Darmouth</p>
                             </div>
                         </Col>
                         <Col xs={4.5} sm={6} md={6} lg={3}>
                             <div style={{ cursor: "pointer" }} onClick={() => alert("Under Construction")} className="img-pets">
-                                <img height="250px" width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCE7gS5k-2yoa0IOEybqxlH6SE11P-5bHMFEQ-LIgvjlVlnZfG&usqp=CAU"></img>
+                                <img height="250px" width="100%" src="https://live.staticflickr.com/730/21225816748_c41918293d_b.jpg"></img>
                                 <p>Cashew, Clayton Park</p>
                             </div>
                         </Col>
                         <Col xs={4.5} sm={6} md={6} lg={3}>
                             <div style={{ cursor: "pointer" }} onClick={() => alert("Under Construction")}  className="img-pets">
-                                <img height="250px" width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT0Zd-mqpAqdUkccYP0_f6ZW2IFhTHxnYQp4gzu7h8NkteaZhlO&usqp=CAU"></img>
+                                <img height="250px" width="100%" src="https://upload.wikimedia.org/wikipedia/commons/6/66/An_up-close_picture_of_a_curious_male_domestic_shorthair_tabby_cat.jpg"></img>
                                 <p>Mixy, Spring Garden</p>
                             </div></Col>
                         <Col xs={4.5} sm={6} md={6} lg={3}>
                             <div style={{ cursor: "pointer" }} onClick={() => alert("Under Construction")} className="img-pets">
-                                <img height="250px" width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQTbEitL08lRED-TOWLeoeK-KcXcaav_TRVxRDrm1R8tKl2OnLV&usqp=CAU"></img>
+                                <img height="250px" width="100%" src="https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_960_720.jpg"></img>
                                 <p>Trixy, Lower Sackville</p>
                             </div>
                         </Col>
@@ -110,13 +111,13 @@ class HomePage extends Component {
                     <Row >
                         <Col xs={9} sm={9} md={6} lg={6}>
                             <div style={{ cursor: "pointer" }} onClick={() => alert("Under Construction")} className="img-view">
-                                <img src="https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2018/01/12202308/happy-high-five-lab.jpg" height="250px" width="100%"></img>
+                                <img src="https://storage.needpix.com/rsynced_images/couple-532010_1280.jpg" height="250px" width="100%"></img>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took. </p>
                             </div>
                         </Col>
                         <Col xs={9} sm={9} md={6} lg={6}>
                             <div style={{ cursor: "pointer" }} onClick={() => alert("Under Construction")} className="img-view">
-                                <img src="https://athenaspets.com/wp-content/uploads/2019/12/Happy-Dog-Owner-with-Lab.jpg" height="250px" width="100%"></img>
+                                <img src="https://p1.pxfuel.com/preview/633/272/975/dogs-dog-pet-pug.jpg" height="250px" width="100%"></img>
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took. </p>
                             </div>
                         </Col>
@@ -129,7 +130,7 @@ class HomePage extends Component {
                             <Col xs={9} sm={6} md ={4} lg={4}>
                                 <div className="connect-style">
                                     Pet Adoption FAQS
-                                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR4DjlGu1wqimqHhR_CmFk8m5SQOC2oreUJwjFSwKXoccx-dtMq&usqp=CAU" width="100%" height="100px"></img>
+                                   <img src="https://cdn.pixabay.com/photo/2016/10/20/18/36/search-1756278_960_720.jpg" width="100%" height="100px"></img>
                            Have a question? Get answers to questions over here..
                            <div><Button variant="outline-primary" onClick={() => alert("Under Construction")} >FAQs</Button>{' '}</div>
                                 </div>
@@ -137,7 +138,7 @@ class HomePage extends Component {
                             <Col xs={9} sm={6} md ={4} lg={4}>
                                 <div className="connect-style">
                                     Contact Us
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ7CccpJ2BDElBYwWaKWShnF8orL3LMPN7lq47mKR3Xz3MnzkUC&usqp=CAU" width="100%" height="100px"></img>
+                                    <img src="https://live.staticflickr.com/4294/35454264413_a1241fddbd_b.jpg" width="100%" height="100px"></img>
 
                           Want to contact us? Details for contacting us are mentioned in Contact Us.
                           <div><Button variant="outline-primary" onClick={() => alert("Under Construction")} >Contact Us</Button>{' '}</div>
@@ -146,7 +147,7 @@ class HomePage extends Component {
                             <Col xs={9} sm={6} md ={4} lg={4}>
                                 <div className="connect-style">
                                     About Us
-                                    <img src="https://adr.sd33.bc.ca/sites/adr.sd33.bc.ca/files/2019-01/About%20Us.jpg" width="100%" height="100px"></img>
+                                    <img src="https://cdn.pixabay.com/photo/2016/03/11/08/02/usa-1249880_960_720.jpg" width="100%" height="100px"></img>
                                 Want to know more about us? Visit your About Us page to know our details.
                             <div><Button variant="outline-primary" onClick={() => alert("Under Construction")} >About Us</Button>{' '}</div>
                                 </div>

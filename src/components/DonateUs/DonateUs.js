@@ -1,12 +1,12 @@
+// Dummy content is referred from https://www.lipsum.com/
 import React, { Component } from 'react';
 import './DonateUs.css';
 import Button from 'react-bootstrap/Button';
 import { Row, Col, Container } from 'react-bootstrap';
 import TextField from '@material-ui/core/TextField';
-// import '../../App.css';
 import Carousel from 'react-bootstrap/Carousel';
 import PetsIcon from '@material-ui/icons/Pets';
-import  NavbarComponent  from '../Navbar/Navbar';
+import NavbarComponent from '../Navbar/Navbar';
 import { Link } from 'react-router-dom';
 
 class DonateUs extends Component {
@@ -188,7 +188,7 @@ class DonateUs extends Component {
             }
         }
     }
-
+    // Regex referred from  https://stackoverflow.com/questions/940577/javascript-regular-expression-email-validation
     validateEmail = (email) => {
         return new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
 
@@ -205,6 +205,7 @@ class DonateUs extends Component {
         this.setState(nextState);
     }
 
+    // Regex referred from https://stackoverflow.com/questions/19410950/regex-to-match-10-15-digit-number 
     cardNumberValidate = (cardNumber) => {
         return new RegExp(/^[1-9][0-9]{12,15}$/).test(cardNumber);
     }
@@ -212,138 +213,138 @@ class DonateUs extends Component {
     render() {
         return (
             <div>
-            <NavbarComponent />
-            <div className="donateUs">
-                <form onSubmit={this.onSubmit}>
-                    <h1><PetsIcon style={{ fontSize: 40, marginBottom: 10, marginRight: 5 }} />Donate Us</h1>
-                    <h4> We need your help because every pet deserves care</h4>
-                    <div>
+                <NavbarComponent />
+                <div className="donateUs">
+                    <form onSubmit={this.onSubmit}>
+                        <h1><PetsIcon style={{ fontSize: 40, marginBottom: 10, marginRight: 5 }} />Donate Us</h1>
+                        <h4> We need your help because every pet deserves care</h4>
+                        <div>
+                            <Container>
+                                <Row>
+                                    <Col className="box-style" xs={12} sm={12} md={12} lg={12}>
+                                        <Carousel>
+                                            <Carousel.Item>
+                                                <img
+                                                    className="d-block w-100"
+                                                    src="https://storage.needpix.com/rsynced_images/dogs-4137678_1280.jpg"
+                                                    alt="First slide"
+                                                    width="100%"
+                                                    height="350px"
+                                                />
+                                            </Carousel.Item>
+                                            <Carousel.Item>
+                                                <img
+                                                    className="d-block w-100"
+                                                    src="https://storage.needpix.com/rsynced_images/cat-4262034_1280.jpg"
+                                                    alt="Second slide"
+                                                    width="100%"
+                                                    height="350px"
+                                                />
+                                            </Carousel.Item>
+                                            <Carousel.Item>
+                                                <img
+                                                    className="d-block w-100"
+                                                    src="https://www.hertsforlearning.co.uk/sites/default/files/images/blog/DOG%20PIC%201.jpg"
+                                                    alt="Third slide"
+                                                    width="100%"
+                                                    height="350px"
+                                                />
+                                            </Carousel.Item>
+                                        </Carousel>
+                                    </Col>
+                                    <Col xs={12} sm={12} md={12} lg={12}>
+                                        <div className="fonts-class">
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                            Lorem Ipsum has been the indused in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                           </div>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </div>
+                        <div>
+                            <Button active={this.state.activeFirstbtn} onClick={this.monthlyClick} className="button-css" size="lg" variant="outline-primary">Monthly</Button>{' '}
+                            <Button active={this.state.activeSecondbtn} onClick={this.onetimeClick} className="button-css" size="lg" variant="outline-primary">One Time</Button>{' '}
+                        </div>
+                        <div>
+                            <h4>{this.state.subscription === "Monthly" ? "Monthly subscription" : "One Time Payment"}</h4>
+                        </div>
                         <Container>
                             <Row>
-                                <Col className="box-style" xs={12} sm={12} md={12} lg={12}>
-                                    <Carousel>
-                                        <Carousel.Item>
-                                            <img
-                                                className="d-block w-100"
-                                                src="https://s3-us-west-1.amazonaws.com/breederretriever/uploads/breeds/images/photopost/536/iStock_000001285472Small.jpg"
-                                                alt="First slide"
-                                                width="100%"
-                                                height="350px"
-                                            />
-                                        </Carousel.Item>
-                                        <Carousel.Item>
-                                            <img
-                                                className="d-block w-100"
-                                                src="https://i.ytimg.com/vi/kEtCPKjWpgQ/maxresdefault.jpg"
-                                                alt="Third slide"
-                                                width="100%"
-                                                height="350px"
-                                            />
-                                        </Carousel.Item>
-                                        <Carousel.Item>
-                                            <img
-                                                className="d-block w-100"
-                                                src="https://cdn.dribbble.com/users/1786581/screenshots/6523562/untitled-1.png"
-                                                alt="Third slide"
-                                                width="100%"
-                                                height="350px"
-                                            />
-                                        </Carousel.Item>
-                                    </Carousel>
-                                </Col>
-                                <Col xs={12} sm={12} md={12} lg={12}>
-                                    <div className="fonts-class">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                        Lorem Ipsum has been the indused in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                           </div>
-                                </Col>
-                            </Row>
-                        </Container>
-                    </div>
-                    <div>
-                        <Button active={this.state.activeFirstbtn} onClick={this.monthlyClick} className="button-css" size="lg" variant="outline-primary">Monthly</Button>{' '}
-                        <Button active={this.state.activeSecondbtn} onClick={this.onetimeClick} className="button-css" size="lg" variant="outline-primary">One Time</Button>{' '}
-                    </div>
-                    <div>
-                        <h4>{this.state.subscription === "Monthly" ? "Monthly subscription" : "One Time Payment"}</h4>
-                    </div>
-                    <Container>
-                        <Row>
-                            <Col xs={12} sm={12} md={6} lg={6}>
-                                <h4>Your Details</h4>
-                                <div className="border-right-here">
-                                    <div className="custom-class">
+                                <Col xs={12} sm={12} md={6} lg={6}>
+                                    <h4>Your Details</h4>
+                                    <div className="border-right-here">
+                                        <div className="custom-class">
 
-                                        <TextField className="input-class"
-                                            id="standard-basic"
-                                            floatinglabeltext="Name"
-                                            type="text"
-                                            error={this.state.name_error_text !== null}
-                                            helperText={this.state.name_error_text}
-                                            onChange={e => this.changeValue(e, 'name')}
-                                            id="standard-basic" required label="Name"
-                                            onBlur={this.isDisabled}
-                                            required label="Name" />
+                                            <TextField className="input-class"
+                                                id="standard-basic"
+                                                floatinglabeltext="Name"
+                                                type="text"
+                                                error={this.state.name_error_text !== null}
+                                                helperText={this.state.name_error_text}
+                                                onChange={e => this.changeValue(e, 'name')}
+                                                id="standard-basic" required label="Name"
+                                                onBlur={this.isDisabled}
+                                                required label="Name" />
+                                        </div>
+                                        <div className="custom-class">
+                                            <TextField className="input-class"
+                                                id="standard-basic"
+                                                floatinglabeltext="Email"
+                                                type="email"
+                                                error={this.state.email_error_text !== null}
+                                                helperText={this.state.email_error_text}
+                                                onChange={e => this.changeValue(e, 'email')}
+                                                id="standard-basic" required label="Email"
+                                                onBlur={this.isDisabled}
+                                                required label="Email" /></div>
+                                        <div>
+                                            <TextField className="input-class"
+                                                id="standard-basic"
+                                                floatinglabeltext="Amount"
+                                                type="number"
+                                                error={this.state.amount_error_text !== null}
+                                                helperText={this.state.amount_error_text}
+                                                onChange={e => this.changeValue(e, 'amount')}
+                                                required label="Amount"
+                                                onBlur={this.isDisabled}
+                                                required label="Amount" />
+                                        </div>
                                     </div>
-                                    <div className="custom-class">
-                                        <TextField className="input-class"
-                                            id="standard-basic"
-                                            floatinglabeltext="Email"
-                                            type="email"
-                                            error={this.state.email_error_text !== null}
-                                            helperText={this.state.email_error_text}
-                                            onChange={e => this.changeValue(e, 'email')}
-                                            id="standard-basic" required label="Email"
-                                            onBlur={this.isDisabled}
-                                            required label="Email" /></div>
-                               <div>
-                                        <TextField className="input-class"
-                                            id="standard-basic"
-                                            floatinglabeltext="Amount"
-                                            type="number"
-                                            error={this.state.amount_error_text !== null}
-                                            helperText={this.state.amount_error_text}
-                                            onChange={e => this.changeValue(e, 'amount')}
-                                            required label="Amount"
-                                            onBlur={this.isDisabled}
-                                            required label="Amount" />
-                                    </div>
-                                </div>
-                            </Col>
-                            
-                            <Col xs={12} sm={12} md={6} lg={6}>
-                                <h4>Card Details</h4>
-                                <div>
-                                    <div className="custom-class">
-                                        <TextField className="input-class"
-                                            id="standard-basic"
-                                            floatinglabeltext="cardHolderName"
-                                            type="text"
-                                            error={this.state.cardHolderName_error_text !== null}
-                                            helperText={this.state.cardHolderName_error_text}
-                                            onChange={e => this.changeValue(e, 'cardHolderName')}
-                                            required label="CardHolderName"
-                                            onBlur={this.isDisabled}
-                                            required label="CardHolderName" />
-                                    </div>
-                                    <div className="custom-class">
-                                        <TextField className="input-class"
-                                            id="standard-basic"
-                                            floatinglabeltext="cardNumber"
-                                            type="number"
-                                            error={this.state.cardNumber_error_text !== null}
-                                            helperText={this.state.cardNumber_error_text}
-                                            onChange={e => this.changeValue(e, 'cardNumber')}
-                                            required label="CardNumber"
-                                            onBlur={this.isDisabled}
-                                            required label="cardNumber" /></div>
-                                    <div className="custom-class"><TextField className="input-class" id="standard-basic" label="ZipCode" /></div>
-                                    <div >
+                                </Col>
+
+                                <Col xs={12} sm={12} md={6} lg={6}>
+                                    <h4>Card Details</h4>
+                                    <div>
+                                        <div className="custom-class">
+                                            <TextField className="input-class"
+                                                id="standard-basic"
+                                                floatinglabeltext="cardHolderName"
+                                                type="text"
+                                                error={this.state.cardHolderName_error_text !== null}
+                                                helperText={this.state.cardHolderName_error_text}
+                                                onChange={e => this.changeValue(e, 'cardHolderName')}
+                                                required label="CardHolderName"
+                                                onBlur={this.isDisabled}
+                                                required label="CardHolderName" />
+                                        </div>
+                                        <div className="custom-class">
+                                            <TextField className="input-class"
+                                                id="standard-basic"
+                                                floatinglabeltext="cardNumber"
+                                                type="number"
+                                                error={this.state.cardNumber_error_text !== null}
+                                                helperText={this.state.cardNumber_error_text}
+                                                onChange={e => this.changeValue(e, 'cardNumber')}
+                                                required label="CardNumber"
+                                                onBlur={this.isDisabled}
+                                                required label="cardNumber" /></div>
+                                        <div className="custom-class"><TextField className="input-class" id="standard-basic" label="ZipCode" /></div>
+                                        <div >
 
                                         </div><img className="captcha-css" src="https://www.pandasecurity.com/mediacenter/src/uploads/2014/09/avoid-captcha.jpg" height="75px" width="75px"></img>
-                                </div>
-                                <div>
-                                <TextField className="input-class"
+                                    </div>
+                                    <div>
+                                        <TextField className="input-class"
                                             id="standard-basic"
                                             floatinglabeltext="Captcha"
                                             type="text"
@@ -353,16 +354,16 @@ class DonateUs extends Component {
                                             id="standard-basic" required label="Captcha"
                                             onBlur={this.isDisabled}
                                             required label="Captcha" />
-                                </div>
-                            </Col>
-                        </Row>
-                    </Container>
-                <div>
-                <Link to="/"><Button type="submit"
-                        onChange={e => this.changeValue(e, 'captcha')}
-                        onBlur={this.isDisabled} disabled={this.state.disabled} className="button-css" variant="outline-primary" size="lg">Donate</Button>{' '}</Link></div>
-                </form>
-            </div >
+                                    </div>
+                                </Col>
+                            </Row>
+                        </Container>
+                        <div>
+                            <Link to="/"><Button type="submit"
+                                onChange={e => this.changeValue(e, 'captcha')}
+                                onBlur={this.isDisabled} disabled={this.state.disabled} className="button-css" variant="outline-primary" size="lg">Donate</Button>{' '}</Link></div>
+                    </form>
+                </div >
             </div>
         );
     }

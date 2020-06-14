@@ -1,3 +1,4 @@
+// Dummy content is referred from https://www.lipsum.com/
 import React, { Component, useRef } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import '../../App.css';

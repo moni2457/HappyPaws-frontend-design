@@ -111,7 +111,7 @@ class Register extends Component {
                 <div className="App">
                     <form onSubmit={this.onSubmit} >
                         <div>
-                        <Link to="/"><CloseIcon style={{float:"right", marginRight: "20px"}} fontSize="large"></CloseIcon></Link>
+                            <Link to="/"><CloseIcon style={{ float: "right", marginRight: "20px" }} fontSize="large"></CloseIcon></Link>
                             <h2 className="mainheader"><PetsIcon fontSize="large" />HappyPaws</h2>
                             <h6 className="custom-h6">Already have an HappyPaws account? <a href="#login">Log in</a></h6>
 
@@ -151,9 +151,9 @@ class Register extends Component {
                                                     onBlur={this.isDisabled} /></div>
                                         </div>
                                         <div className="button-class">
-                                            <Button disabled={this.state.disabled} variant="primary" size="lg" active>
+                                            <Link to="/"> <Button disabled={this.state.disabled} variant="primary" size="lg" active>
                                                 Sign Up
-                    </Button>{' '}
+                    </Button>{' '}</Link>
                                         </div>
                                         <div className="btn-width">
                                             <div className="button-class">
