@@ -115,7 +115,7 @@ bootstrap - This library was  used to get a beautiful responsive UI to the web a
 Used in:
 All the .js and .css files for UI.
 
-@material-ui/icons - https://material-ui.com/components/material-icons/ - This library is used for the web application logo. The "Paw" created in the application in used from the material UI icons. 
+@material-ui/icons - https://material-ui.com/components/material-icons/ - This library is used for the web application logo. The "Paw" Icon created in the application in used from the material UI icons. 
 
 Used in:
 Donate.js
@@ -129,7 +129,7 @@ Used in:
 All the .js and .css files for UI.
 
 
-##Design Choices
+## Design Choices
 
 For having a powerful UI with responsive and beautiful design, I have used react-bootstrap,  material UI and Bootstrap. This css frameworks provide powerful UI and enhances the look and feel for Users. 
 The color co-ordination in the web application blue and grey which are very pleasing and calm colors. I have provided the necessary text for the user for their basic understanding and used dummy text whenever needed. I have kept the design like buttons and text consistent at all the pages of the web application.
@@ -137,6 +137,7 @@ The color co-ordination in the web application blue and grey which are very plea
 
 ## Exceeding the requirements
 Used many third-party libraries and css framework for best user performance. 
+The css is tested on all the popular browsers.
 
 ## Acknowledgments
 

@@ -20,12 +20,12 @@ class DonateUs extends Component {
         amount: 0,
         cardNumber: 0,
         captcha: '',
-        name_error_text: null,
-        email_error_text: null,
-        cardHolderName_error_text: null,
-        amount_error_text: null,
-        cardNumber_error_text: null,
-        captcha_error_text: null,
+        nameError: null,
+        emailError: null,
+        cardHolderNameError: null,
+        amountError: null,
+        cardNumberError: null,
+        captchaError: null,
         disabled: true,
         amountTextVisisble: false
     }
@@ -57,23 +57,23 @@ class DonateUs extends Component {
     }
 
     isDisabled = () => {
-        let nameIsValid = false;
-        let emailIsValid = false;
+        let nameIsRequired = false;
+        let validEmail = false;
         let hasAmount = false;
         let cardNameValid = false;
         let cardNumberValid = false;
         let captchaValid = false;
 
         if (this.state.name === '' || !this.state.name) {
-            nameIsValid = false;
+            nameIsRequired = false;
             this.setState({
-                name_error_text: null
+                nameError: null
             });
         } else {
             if (this.state.name !== '') {
-                nameIsValid = true
+                nameIsRequired = true
                 this.setState({
-                    name_error_text: null
+                    nameError: null
                 });
             }
 
@@ -81,106 +81,105 @@ class DonateUs extends Component {
         if (this.state.cardHolderName === '' || !this.state.cardHolderName) {
             cardNameValid = false;
             this.setState({
-                cardHolderName_error_text: null
+                cardHolderNameError: null
             });
         } else {
             if (this.state.cardHolderName !== '') {
                 cardNameValid = true
                 this.setState({
-                    cardHolderName_error_text: null
+                    cardHolderNameError: null
                 });
             }
-
         }
 
         if (this.state.email === "") {
             this.setState({
-                email_error_text: null
+                emailError: null
             });
         } else {
             if (this.validateEmail(this.state.email)) {
-                emailIsValid = true
+                validEmail = true
                 this.setState({
-                    email_error_text: null
+                    emailError: null
                 });
             } else {
                 this.setState({
-                    email_error_text: "Please enter valid email!"
+                    emailError: "Please enter valid email!"
                 });
             }
         }
 
         if (this.state.captcha === "" || !this.state.captcha) {
             this.setState({
-                captcha_error_text: null
+                captchaError: null
             });
         } else {
             if (this.state.captcha === 'qGphJD') {
                 captchaValid = true;
                 this.setState({
-                    captcha_error_text: null
+                    captchaError: null
                 });
             } else if (this.state.captcha !== 'qGphJD') {
                 this.setState({
-                    captcha_error_text: "Your captcha is incorrect."
+                    captchaError: "Your captcha is incorrect."
                 });
             } else {
                 this.setState({
-                    captcha_error_text: "Please enter captcha"
+                    captchaError: "Please enter captcha"
                 });
             }
         }
         if (this.state.cardNumber === 0 || this.state.captcha === null) {
             this.setState({
-                cardNumber_error_text: null
+                cardNumberError: null
             });
         } else {
 
             if (this.cardNumberValidate(this.state.cardNumber)) {
                 cardNumberValid = true;
                 this.setState({
-                    cardNumber_error_text: null
+                    cardNumberError: null
                 });
             } else if (!(this.cardNumberValidate(this.state.cardNumber))) {
                 this.setState({
-                    cardNumber_error_text: "Card Number must have 13-16 digits."
+                    cardNumberError: "Card Number must have 13-16 digits."
                 });
             } else {
                 this.setState({
-                    cardNumber_error_text: "Please enter Card Number"
+                    cardNumberError: "Please enter Card Number"
                 });
             }
         }
         if (this.state.amount === 0 || this.state.amount === null) {
             this.setState({
-                amount_error_text: null
+                amountError: null
             });
         } else {
             if (this.state.amount > 0) {
                 hasAmount = true;
                 this.setState({
-                    amount_error_text: null
+                    amountError: null
                 });
             } else {
                 this.setState({
-                    amount_error_text: "Please enter Amount"
+                    amountError: "Please enter Amount"
                 });
             }
         }
 
-        if (emailIsValid && captchaValid && hasAmount && cardNameValid && cardNumberValid) {
+        if (validEmail && captchaValid && hasAmount && cardNameValid && cardNumberValid) {
             if (this.state.name === '') {
                 this.setState({
-                    name_error_text: "Please enter name"
+                    nameError: "Please enter name"
                 });
 
-            } else if (emailIsValid && nameIsValid && hasAmount && cardNumberValid && captchaValid) {
+            } else if (validEmail && nameIsRequired && hasAmount && cardNumberValid && captchaValid) {
                 if (this.state.cardHolderName === '') {
                     this.setState({
-                        name_error_text: "Please enter card holder name"
+                        nameError: "Please enter card holder name"
                     });
                 }
-                else if (emailIsValid && nameIsValid && hasAmount && cardNameValid && cardNumberValid && captchaValid) {
+                else if (validEmail && nameIsRequired && hasAmount && cardNameValid && cardNumberValid && captchaValid) {
                     this.setState({
                         disabled: false
                     });
@@ -198,10 +197,10 @@ class DonateUs extends Component {
             amount: event.target.value
         })
     }
-    changeValue = (e, type) => {
-        const value = e.target.value;
+
+    onValueChange = (e, label) => {
         const nextState = {};
-        nextState[type] = value;
+        nextState[label] = e.target.value;;
         this.setState(nextState);
     }
 
@@ -279,9 +278,9 @@ class DonateUs extends Component {
                                                 id="standard-basic"
                                                 floatinglabeltext="Name"
                                                 type="text"
-                                                error={this.state.name_error_text !== null}
-                                                helperText={this.state.name_error_text}
-                                                onChange={e => this.changeValue(e, 'name')}
+                                                error={this.state.nameError !== null}
+                                                helperText={this.state.nameError}
+                                                onChange={e => this.onValueChange(e, 'name')}
                                                 id="standard-basic" required label="Name"
                                                 onBlur={this.isDisabled}
                                                 required label="Name" />
@@ -291,9 +290,9 @@ class DonateUs extends Component {
                                                 id="standard-basic"
                                                 floatinglabeltext="Email"
                                                 type="email"
-                                                error={this.state.email_error_text !== null}
-                                                helperText={this.state.email_error_text}
-                                                onChange={e => this.changeValue(e, 'email')}
+                                                error={this.state.emailError !== null}
+                                                helperText={this.state.emailError}
+                                                onChange={e => this.onValueChange(e, 'email')}
                                                 id="standard-basic" required label="Email"
                                                 onBlur={this.isDisabled}
                                                 required label="Email" /></div>
@@ -302,9 +301,9 @@ class DonateUs extends Component {
                                                 id="standard-basic"
                                                 floatinglabeltext="Amount"
                                                 type="number"
-                                                error={this.state.amount_error_text !== null}
-                                                helperText={this.state.amount_error_text}
-                                                onChange={e => this.changeValue(e, 'amount')}
+                                                error={this.state.amountError !== null}
+                                                helperText={this.state.amountError}
+                                                onChange={e => this.onValueChange(e, 'amount')}
                                                 required label="Amount"
                                                 onBlur={this.isDisabled}
                                                 required label="Amount" />
@@ -320,9 +319,9 @@ class DonateUs extends Component {
                                                 id="standard-basic"
                                                 floatinglabeltext="cardHolderName"
                                                 type="text"
-                                                error={this.state.cardHolderName_error_text !== null}
-                                                helperText={this.state.cardHolderName_error_text}
-                                                onChange={e => this.changeValue(e, 'cardHolderName')}
+                                                error={this.state.cardHolderNameError !== null}
+                                                helperText={this.state.cardHolderNameError}
+                                                onChange={e => this.onValueChange(e, 'cardHolderName')}
                                                 required label="CardHolderName"
                                                 onBlur={this.isDisabled}
                                                 required label="CardHolderName" />
@@ -332,9 +331,9 @@ class DonateUs extends Component {
                                                 id="standard-basic"
                                                 floatinglabeltext="cardNumber"
                                                 type="number"
-                                                error={this.state.cardNumber_error_text !== null}
-                                                helperText={this.state.cardNumber_error_text}
-                                                onChange={e => this.changeValue(e, 'cardNumber')}
+                                                error={this.state.cardNumberError !== null}
+                                                helperText={this.state.cardNumberError}
+                                                onChange={e => this.onValueChange(e, 'cardNumber')}
                                                 required label="CardNumber"
                                                 onBlur={this.isDisabled}
                                                 required label="cardNumber" /></div>
@@ -348,9 +347,9 @@ class DonateUs extends Component {
                                             id="standard-basic"
                                             floatinglabeltext="Captcha"
                                             type="text"
-                                            error={this.state.captcha_error_text !== null}
-                                            helperText={this.state.captcha_error_text}
-                                            onChange={e => this.changeValue(e, 'captcha')}
+                                            error={this.state.captchaError !== null}
+                                            helperText={this.state.captchaError}
+                                            onChange={e => this.onValueChange(e, 'captcha')}
                                             id="standard-basic" required label="Captcha"
                                             onBlur={this.isDisabled}
                                             required label="Captcha" />
@@ -360,7 +359,7 @@ class DonateUs extends Component {
                         </Container>
                         <div>
                             <Link to="/"><Button type="submit"
-                                onChange={e => this.changeValue(e, 'captcha')}
+                                onChange={e => this.onValueChange(e, 'captcha')}
                                 onBlur={this.isDisabled} disabled={this.state.disabled} className="button-css" variant="outline-primary" size="lg">Donate</Button>{' '}</Link></div>
                     </form>
                 </div >

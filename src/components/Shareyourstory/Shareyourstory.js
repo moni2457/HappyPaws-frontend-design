@@ -13,47 +13,39 @@ class Shareyourstory extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            file: null,
             email: '',
-            email_error_text: null,
+            emailError: null,
             disabled: true,
             counter: 'Your Story',
         }
-        this.handleChange = this.handleChange.bind(this)
     }
 
-    handleChange(event) {
-        this.setState({
-            file: URL.createObjectURL(event.target.files[0])
-        })
-    }
 
-    validateEmail = (email) => {
+    emailValidation = (email) => {
         return new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
     }
 
     isDisabled = () => {
-        let emailIsValid = false;
+        let validEmail = false;
         let jodit = this.state.counter !== '';
 
         if (this.state.email === "") {
             this.setState({
-                email_error_text: null
+                emailError: null
             });
         } else {
-            if (this.validateEmail(this.state.email)) {
-                emailIsValid = true
+            if (this.emailValidation(this.state.email)) {
+                validEmail = true
                 this.setState({
-                    email_error_text: null
+                    emailError: null
                 });
             } else {
                 this.setState({
-                    email_error_text: "Please enter valid email!"
+                    emailError: "Please enter valid email!"
                 });
             }
         }
-        debugger;
-        if (emailIsValid && jodit) {
+        if (validEmail && jodit) {
             this.setState({
                 disabled: false
             });
@@ -61,21 +53,20 @@ class Shareyourstory extends Component {
     }
 
 
-    changeValue = (e, type) => {
-        const value = e.target.value;
+    onValueChange = (e, label) => {
         const nextState = {};
-        nextState[type] = value;
+        nextState[label] = e.target.value;;
         this.setState(nextState);
     }
 
-    update=(value)=>{
+    update = (value) => {
         return () => {
-           this.setState({
-             counter: value
-           });
+            this.setState({
+                counter: value
+            });
         }
-      }
-    
+    }
+
 
     render() {
         return (
@@ -103,9 +94,9 @@ class Shareyourstory extends Component {
                                         <TextField className="input-class" id="standard-basic" label="Enter your Email"
                                             floatinglabeltext="Email"
                                             type="email"
-                                            error={this.state.email_error_text !== null}
-                                            helperText={this.state.email_error_text}
-                                            onChange={e => this.changeValue(e, 'email')}
+                                            error={this.state.emailError !== null}
+                                            helperText={this.state.emailError}
+                                            onChange={e => this.onValueChange(e, 'email')}
                                             id="standard-basic" label="Email"
                                             onBlur={this.isDisabled} required />
                                     </div>
@@ -113,7 +104,7 @@ class Shareyourstory extends Component {
                             </Row>
                         </Container>
                         <div className="editor-style">
-                            <Jodit data={this.update.bind(this)}/>
+                            <Jodit data={this.update.bind(this)} />
                         </div>
                         <div className="button-style">
                             <Link to="/"> <Button disabled={this.state.disabled} type="submit" size="lg" variant="outline-primary">Submit</Button>{' '}</Link>

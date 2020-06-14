@@ -14,28 +14,28 @@ class Register extends Component {
         name: '',
         email: '',
         password: '',
-        name_error_text: null,
-        email_error_text: null,
-        password_error_text: null,
+        nameError: null,
+        emailError: null,
+        passwordError: null,
         disabled: true,
 
     }
 
     isDisabled = () => {
-        let nameIsValid = false;
-        let emailIsValid = false;
+        let nameIsRequired = false;
+        let validEmail = false;
         let passwordIsValid = false;
 
         if (this.state.name === '' || !this.state.name) {
-            nameIsValid = false;
+            nameIsRequired = false;
             this.setState({
-                name_error_text: null
+                nameError: null
             });
         } else {
             if (this.state.name !== '') {
-                nameIsValid = true
+                nameIsRequired = true
                 this.setState({
-                    name_error_text: null
+                    nameError: null
                 });
             }
 
@@ -43,44 +43,44 @@ class Register extends Component {
 
         if (this.state.email === "") {
             this.setState({
-                email_error_text: null
+                emailError: null
             });
         } else {
-            if (this.validateEmail(this.state.email)) {
-                emailIsValid = true
+            if (this.emailValidation(this.state.email)) {
+                validEmail = true
                 this.setState({
-                    email_error_text: null
+                    emailError: null
                 });
             } else {
                 this.setState({
-                    email_error_text: "Please enter valid email!"
+                    emailError: "Please enter valid email!"
                 });
             }
         }
 
         if (this.state.password === "" || !this.state.password) {
             this.setState({
-                password_error_text: null
+                passwordError: null
             });
         } else {
             if (this.state.password.length >= 6) {
                 passwordIsValid = true;
                 this.setState({
-                    password_error_text: null
+                    passwordError: null
                 });
             } else {
                 this.setState({
-                    password_error_text: "Your password must be at least 6 characters"
+                    passwordError: "Your password must be at least 6 characters"
                 });
             }
         }
 
-        if (emailIsValid && passwordIsValid) {
+        if (validEmail && passwordIsValid) {
             if (this.state.name === '') {
                 this.setState({
-                    name_error_text: "Please enter name"
+                    nameError: "Please enter name"
                 });
-            } else if (emailIsValid && nameIsValid && passwordIsValid) {
+            } else if (validEmail && nameIsRequired && passwordIsValid) {
                 this.setState({
                     disabled: false
                 });
@@ -88,15 +88,14 @@ class Register extends Component {
 
         }
     }
-    validateEmail = (email) => {
-        return new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
 
+    emailValidation = (email) => {
+        return new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
     }
 
-    changeValue = (e, type) => {
-        const value = e.target.value;
+    onValueChange = (e, label) => {
         const nextState = {};
-        nextState[type] = value;
+        nextState[label] = e.target.value;;
         this.setState(nextState);
     }
 
@@ -124,9 +123,9 @@ class Register extends Component {
                                                     id="standard-basic"
                                                     floatinglabeltext="Name"
                                                     type="text"
-                                                    error={this.state.name_error_text !== null}
-                                                    helperText={this.state.name_error_text}
-                                                    onChange={e => this.changeValue(e, 'name')}
+                                                    error={this.state.nameError !== null}
+                                                    helperText={this.state.nameError}
+                                                    onChange={e => this.onValueChange(e, 'name')}
                                                     id="standard-basic" required label="Email"
                                                     onBlur={this.isDisabled}
                                                     required label="Name" /></div>
@@ -134,9 +133,9 @@ class Register extends Component {
                                                 <TextField className="input-class"
                                                     floatinglabeltext="Email"
                                                     type="email"
-                                                    error={this.state.email_error_text !== null}
-                                                    helperText={this.state.email_error_text}
-                                                    onChange={e => this.changeValue(e, 'email')}
+                                                    error={this.state.emailError !== null}
+                                                    helperText={this.state.emailError}
+                                                    onChange={e => this.onValueChange(e, 'email')}
                                                     id="standard-basic" required label="Email"
                                                     onBlur={this.isDisabled} />
                                             </div>
@@ -144,9 +143,9 @@ class Register extends Component {
                                                 <TextField className="input-class"
                                                     floatinglabeltext="Password"
                                                     type="password"
-                                                    error={this.state.password_error_text !== null}
-                                                    helperText={this.state.password_error_text}
-                                                    onChange={e => this.changeValue(e, 'password')}
+                                                    error={this.state.passwordError !== null}
+                                                    helperText={this.state.passwordError}
+                                                    onChange={e => this.onValueChange(e, 'password')}
                                                     id="standard-basic" required label="Password"
                                                     onBlur={this.isDisabled} /></div>
                                         </div>
