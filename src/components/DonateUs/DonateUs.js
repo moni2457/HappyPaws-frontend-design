@@ -56,7 +56,7 @@ class DonateUs extends Component {
         this.setState({ subscription: 'One Time', activeFirstbtn: false, activeSecondbtn: true })
     }
 
-    isDisabled = () => {
+    isSubmitDisabled = () => {
         let nameIsRequired = false;
         let validEmail = false;
         let hasAmount = false;
@@ -282,7 +282,7 @@ class DonateUs extends Component {
                                                 helperText={this.state.nameError}
                                                 onChange={e => this.onValueChange(e, 'name')}
                                                 id="standard-basic" required label="Name"
-                                                onBlur={this.isDisabled}
+                                                onBlur={this.isSubmitDisabled}
                                                 required label="Name" />
                                         </div>
                                         <div className="custom-class">
@@ -294,7 +294,7 @@ class DonateUs extends Component {
                                                 helperText={this.state.emailError}
                                                 onChange={e => this.onValueChange(e, 'email')}
                                                 id="standard-basic" required label="Email"
-                                                onBlur={this.isDisabled}
+                                                onBlur={this.isSubmitDisabled}
                                                 required label="Email" /></div>
                                         <div>
                                             <TextField className="input-class"
@@ -305,7 +305,7 @@ class DonateUs extends Component {
                                                 helperText={this.state.amountError}
                                                 onChange={e => this.onValueChange(e, 'amount')}
                                                 required label="Amount"
-                                                onBlur={this.isDisabled}
+                                                onBlur={this.isSubmitDisabled}
                                                 required label="Amount" />
                                         </div>
                                     </div>
@@ -323,7 +323,7 @@ class DonateUs extends Component {
                                                 helperText={this.state.cardHolderNameError}
                                                 onChange={e => this.onValueChange(e, 'cardHolderName')}
                                                 required label="CardHolderName"
-                                                onBlur={this.isDisabled}
+                                                onBlur={this.isSubmitDisabled}
                                                 required label="CardHolderName" />
                                         </div>
                                         <div className="custom-class">
@@ -335,7 +335,7 @@ class DonateUs extends Component {
                                                 helperText={this.state.cardNumberError}
                                                 onChange={e => this.onValueChange(e, 'cardNumber')}
                                                 required label="CardNumber"
-                                                onBlur={this.isDisabled}
+                                                onBlur={this.isSubmitDisabled}
                                                 required label="cardNumber" /></div>
                                         <div className="custom-class"><TextField className="input-class" id="standard-basic" label="ZipCode" /></div>
                                         <div >
@@ -351,7 +351,7 @@ class DonateUs extends Component {
                                             helperText={this.state.captchaError}
                                             onChange={e => this.onValueChange(e, 'captcha')}
                                             id="standard-basic" required label="Captcha"
-                                            onBlur={this.isDisabled}
+                                            onBlur={this.isSubmitDisabled}
                                             required label="Captcha" />
                                     </div>
                                 </Col>
@@ -360,7 +360,7 @@ class DonateUs extends Component {
                         <div>
                             <Link to="/"><Button type="submit"
                                 onChange={e => this.onValueChange(e, 'captcha')}
-                                onBlur={this.isDisabled} disabled={this.state.disabled} className="button-css" variant="outline-primary" size="lg">Donate</Button>{' '}</Link></div>
+                                disabled={this.state.disabled} className="button-css" variant="outline-primary" size="lg">Donate</Button>{' '}</Link></div>
                     </form>
                 </div >
             </div>

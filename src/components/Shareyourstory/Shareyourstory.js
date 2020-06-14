@@ -25,7 +25,7 @@ class Shareyourstory extends Component {
         return new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email);
     }
 
-    isDisabled = () => {
+    isSubmitDisabled = () => {
         let validEmail = false;
         let jodit = this.state.counter !== '';
 
@@ -98,7 +98,7 @@ class Shareyourstory extends Component {
                                             helperText={this.state.emailError}
                                             onChange={e => this.onValueChange(e, 'email')}
                                             id="standard-basic" label="Email"
-                                            onBlur={this.isDisabled} required />
+                                            onBlur={this.isSubmitDisabled} required />
                                     </div>
                                 </Col>
                             </Row>

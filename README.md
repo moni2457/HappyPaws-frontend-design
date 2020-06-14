@@ -28,6 +28,7 @@ Import the project in your IDE
 Run the following command in terminal In the project directory, use the commands:
 
 npm install 
+
 npm start 
 
 On running npm start, the terminal shows a "Listening at port 8080" message.Now, open the application in your preferred browser by typing "localhost:8080" in the address bar.

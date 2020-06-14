@@ -21,7 +21,7 @@ class Register extends Component {
 
     }
 
-    isDisabled = () => {
+    isSubmitDisabled = () => {
         let nameIsRequired = false;
         let validEmail = false;
         let passwordIsValid = false;
@@ -100,8 +100,6 @@ class Register extends Component {
     }
 
     onSubmit = () => {
-        const history = useHistory();
-        history.push('/');
     }
 
     render() {
@@ -127,7 +125,7 @@ class Register extends Component {
                                                     helperText={this.state.nameError}
                                                     onChange={e => this.onValueChange(e, 'name')}
                                                     id="standard-basic" required label="Email"
-                                                    onBlur={this.isDisabled}
+                                                    onBlur={this.isSubmitDisabled}
                                                     required label="Name" /></div>
                                             <div className="custom-class">
                                                 <TextField className="input-class"
@@ -137,7 +135,7 @@ class Register extends Component {
                                                     helperText={this.state.emailError}
                                                     onChange={e => this.onValueChange(e, 'email')}
                                                     id="standard-basic" required label="Email"
-                                                    onBlur={this.isDisabled} />
+                                                    onBlur={this.isSubmitDisabled} />
                                             </div>
                                             <div className="custom-class">
                                                 <TextField className="input-class"
@@ -147,7 +145,7 @@ class Register extends Component {
                                                     helperText={this.state.passwordError}
                                                     onChange={e => this.onValueChange(e, 'password')}
                                                     id="standard-basic" required label="Password"
-                                                    onBlur={this.isDisabled} /></div>
+                                                    onBlur={this.isSubmitDisabled} /></div>
                                         </div>
                                         <div className="button-class">
                                             <Link to="/"> <Button disabled={this.state.disabled} variant="primary" size="lg" active>
